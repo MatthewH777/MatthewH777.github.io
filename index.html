@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Items Purchased</title> <!--Name of page-->
+    <link rel="stylesheet"
+href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+    </script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js">
+    </script>
+
+
+
+
+
+    
+<!--Start of JS code-->
+<script type="text/javascript">
+
+    var items = [  // array
+        {item: 'boogie board', cost: 15.99, quantity: 3},
+        {item: 'shark-tooth necklace', cost: 10.99, quantity: 1},
+        {item: 'inflatable alligator', cost: 12.99, quantity: 2},
+        {item: 'flip flops', cost: 16.99, quantity: 1},
+        {item: 'beach towel', cost: 10.99, quantity: 2},
+        {item: 'goggles', cost: 8.99, quantity: 2}
+    ];
+
+    window.onload = function() {
+        document.getElementById('showData').onclick = function() {
+            tbl = document.getElementById("dataTable");
+            tbl.style.display = "table"; // make table headings only appear after click
+
+            tbl.innerHTML =""; // looked up how to make my table refresh when clicked multiple times instead of stacking
+
+            var thead = document.createElement('thead');
+            var header = document.createElement('tr');                  // headers for table then loop through the array to get all items
+            var headers = ["Item", "Cost", "Quantity", "Subtotal"];
+            for (var h = 0; h < headers.length; h++) {
+                var th = document.createElement('th');
+                th.textContent = headers[h];
+                header.appendChild(th);
+            }
+
+            thead.appendChild(header);
+            tbl.appendChild(thead);
+            
+
+            var tbody = document.createElement('tbody');
+            for (i=0; i < items.length; i++) {
+                var subtotal = parseFloat(items[i].cost) * parseFloat(items[i].quantity); // subtotal
+                subtotal = subtotal.toFixed(2); //round subtotal to 2 decimal
+
+                var row = document.createElement("tr"); // make table and correlate it
+                var tdItem = document.createElement("td");
+                tdItem.textContent = items[i].item;
+                row.appendChild(tdItem);
+
+                var tdCost = document.createElement("td");
+                tdCost.textContent = items[i].cost;
+                row.appendChild(tdCost);
+
+                var tdQnty = document.createElement("td");
+                tdQnty.textContent = items[i].quantity;
+                row.appendChild(tdQnty);
+
+                var tdSub = document.createElement("td");
+                tdSub.textContent = subtotal;
+                row.appendChild(tdSub);
+
+
+                tbody.appendChild(row);
+                
+                
+            }
+            tbl.appendChild(tbody);
+        };
+    };
+
+
+
+</script>
+
+
+</head>
+<body>
+    <div class="container">
+        <h3>Items Purchased</h3>
+
+        <form>
+            <p><button type="button" class="btn btn-primary" value="Click Here" id="showData">Click Here</button> <!--click here button-->
+        </form><br>
+        
+        <table id="dataTable" class="table table-striped" style="display:none"> <!--Make table for data-->
+            
+        </table>
+    </div>
+</body>
+</html>
