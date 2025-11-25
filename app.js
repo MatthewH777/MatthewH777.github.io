@@ -11,7 +11,7 @@ async function getData(major) {
     var compiledTemplateText = Handlebars.compile(templateText);
     var compiledHtml = compiledTemplateText({ rows: filterMajor}) // add filter using what we made on line 5
 
-    let table = document.getElementById('dataTable').innerHTML = compiledHtml;
+    let table = document.getElementById('dataTable');
     table.style.display = "table";
     table.innerHTML = compiledHtml;
 
@@ -20,3 +20,4 @@ async function getData(major) {
         document.querySelector('#dataTable').innerHTML = "There was an error."
     }
 }
+
