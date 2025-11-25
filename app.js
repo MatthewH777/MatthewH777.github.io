@@ -5,12 +5,16 @@ async function getData(major) {
         var data = await response.json();
 
     // filter data array
-    filterMajor = data.filter(name => name.major == major );
+    let filterMajor = data.filter(name => name.major == major );
 
     var templateText = document.getElementById('menuTemplate').innerHTML;
     var compiledTemplateText = Handlebars.compile(templateText);
-    compiledHtml = compiledTemplateText({ rows: filterMajor}) // add filter using what we made on line 5
-    document.getElementById('dataTable').innerHTML = compiledHtml;
+    var compiledHtml = compiledTemplateText({ rows: filterMajor}) // add filter using what we made on line 5
+
+    let table = document.getElementById('dataTable').innerHTML = compiledHtml;
+    table.style.display = "table";
+    table.innerHTML = compiledHtml;
+
     }
     else {
         document.querySelector('#dataTable').innerHTML = "There was an error."
