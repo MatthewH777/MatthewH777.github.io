@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Majors Filtered</title> <!--Name of page-->
+    <title>Majors Filtered</title> <!--Name of page + stylesheets-->
     <link rel="stylesheet"
 href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
@@ -31,18 +31,17 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
 
 </head>
-<body>
+<body> <!--Headings & buttons-->
     <div class="container">
         <h3>Select a Major</h3>
         <br>
         <h4>Dataset is filtered by major</h4>
 
         <div>
-            <button type="button" class="btn btn-primary" onClick="getData('CIT')">CIT Majors</button> <!--click here button-->   
-            <button type="button" style="margin-right: 10px" class="btn btn-primary" onClick="getData('BUS')">Business Majors</button> <!--click here button-->   
+            <button type="button" class="btn btn-primary" onClick="getData('CIT')">CIT Majors</button> <!--CIT button-->   
+            <button type="button" style="margin-right: 10px" class="btn btn-primary" onClick="getData('BUS')">Business Majors</button> <!--BUS button-->   
         </div><br>
         
-        <div id="dataTable" style="display:none"></div> <!--Make table for data-->
             
         </table>
     </div>
@@ -50,6 +49,7 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="app.js"></script>  <!--Application ajax code-->
 </body>
 </html>
+
 
 
 
