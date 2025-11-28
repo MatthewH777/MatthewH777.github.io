@@ -10,9 +10,10 @@ async function getData(major) {// get major
     var compiledTemplate = Handlebars.compile(templateText);
     var compiledHtml = compiledTemplate({ rows: filtered });
 
-    // Insert into table container
+    // Insert into table 
     var table = document.getElementById('dataTable');
     table.innerHTML = compiledHtml;
     table.style.display = 'block'; 
 }
+
 
