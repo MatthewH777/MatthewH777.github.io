@@ -1,17 +1,18 @@
-async function getData(major) {
-    const response = await fetch("cit5students.json");
-    const data = await response.json();
+async function getData(major) {// get major
+    var response = await fetch("cit5students.json"); // ajax request
+    var data = await response.json();
 
-    // Filter dataset
-    const filtered = data.filter(student => student.major === major);
+    // filter data of students by major
+    var filtered = data.filter(student => student.major === major);
 
-    // Compile template
-    const templateText = document.getElementById('menuTemplate').innerHTML;
-    const compiledTemplate = Handlebars.compile(templateText);
-    const compiledHtml = compiledTemplate({ rows: filtered });
+    // template
+    var templateText = document.getElementById('menuTemplate').innerHTML;
+    var compiledTemplate = Handlebars.compile(templateText);
+    var compiledHtml = compiledTemplate({ rows: filtered });
 
     // Insert into table container
-    const table = document.getElementById('dataTable');
+    var table = document.getElementById('dataTable');
     table.innerHTML = compiledHtml;
-    table.style.display = 'block'; // display
+    table.style.display = 'block'; 
 }
+
